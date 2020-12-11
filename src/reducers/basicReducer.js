@@ -1,6 +1,9 @@
-const basicReducer = (state='BASIC', action) => {
+const basicReducer = (state='BASICC', action) => {
     
     switch(action.type){
+
+        case 'SET_ADVANCED':
+            return 'ADVANCED'
 
         default: return state
     }
