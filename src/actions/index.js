@@ -12,3 +12,10 @@ export const addTodo = (todo) => {
         todo
     }
 }
+
+export const deleteTodo = (key) => {
+    return {
+        type: 'DELETE_TODO',
+        key
+    }
+}

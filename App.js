@@ -8,6 +8,7 @@ import { createStore } from 'redux'
 import rootReducer from './src/reducers/rootReducer'
 
 import BasicComponent from './src/components/BasicComponent'
+import TodoContainer from './src/components/TodoContainer'
 
 const store = createStore(rootReducer);
 
@@ -15,6 +16,7 @@ const App = (props) => {
   return (
     <Provider store={store}>
       <BasicComponent/>
+      <TodoContainer/>
     </Provider>
   );
 }
