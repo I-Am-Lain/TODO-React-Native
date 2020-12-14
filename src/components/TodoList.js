@@ -2,18 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
-import { deleteTodo } from '../actions/'
+
+import TodoItem from './TodoItem'
 
 
 const TodoList = (props) => (
     <View style={styles.container}>
         <FlatList
         data={props.todos}
-        renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => props.deleteTodo(item.key)}>
-                <Text style={styles.listItem}>TASK: {item.name}</Text>
-            </TouchableOpacity >
-        )}
+        renderItem={({ item }) => <TodoItem id={item.key} {...item} />}
         />
     </View>
 )
@@ -21,9 +18,12 @@ const TodoList = (props) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'yellow',
         alignItems: 'center',
         justifyContent: 'center',
+        width: 250, // will also make list container background show automatically
+        marginBottom: 50,
+        marginTop: 16
     },
     listItem: {
         marginTop: 16,
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(state => ({ todos: state.todos }), { deleteTodo })(TodoList)
+export default connect(state => ({ todos: state.todos }))(TodoList)
