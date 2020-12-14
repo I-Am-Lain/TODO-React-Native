@@ -1,6 +1,9 @@
+import 'react-native-gesture-handler';
+
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { global } from './styles/global'
 
 
 import { Provider } from 'react-redux'
@@ -11,6 +14,8 @@ import BasicComponent from './src/components/BasicComponent'
 import TodoContainer from './src/components/TodoContainer'
 import Header from './src/components/Header'
 
+import Navigator from './routes/homeStack'
+
 const store = createStore(rootReducer);
 
 
@@ -19,9 +24,9 @@ const App = (props) => {
     <Provider store={store}>
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
         
-        <View style={styles.mainContainer}>
+        <View style={global.mainContainer}>
           <Header/>
-          <TodoContainer/>
+          <Navigator/>
         </View>
         
       </TouchableWithoutFeedback>
@@ -29,10 +34,5 @@ const App = (props) => {
   );
 }
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1
-  }
-});
 
 export default App

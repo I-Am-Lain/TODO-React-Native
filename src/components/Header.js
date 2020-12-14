@@ -1,25 +1,16 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import { global } from '../../styles/global'
+
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 const Header = () => (
-    <View style={styles.header}>
-        <Text style={styles.headerContent}>EverNote</Text>
+
+    <View style={global.header}>
+        <MaterialCommunityIcons name="puzzle-heart" size={40} color="black" />
+        <Text style={global.headerContent}>EverNote</Text>
     </View>
+    
 )
-
-
-const styles = StyleSheet.create({
-    header: {
-      height: 80,
-      paddingTop: 45,
-      backgroundColor: 'coral'
-    },
-    headerContent: {
-        textAlign: 'center',
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: 'bold'
-    }
-});
 
 export default Header

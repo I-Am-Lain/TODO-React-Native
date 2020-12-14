@@ -1,27 +1,20 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { View, Text, Button, FlatList, TouchableOpacity } from 'react-native';
+
+import { global } from '../../styles/global'
 
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
 
 const TodoContainer = (props) => (
-    <View style={styles.container} >
+    <View style={global.todoContainer} >
+        <Button title='go to basic page' onPress={() => props.navigation.navigate('Test')}/>
         <TodoForm/>
         <TodoList/>
     </View>
 
 )
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-});
-
-
-export default connect(state => ({ todos: state.todos }))(TodoContainer)
+export default TodoContainer
